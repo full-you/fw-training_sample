@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="main.java.mybatis.mapper.TheaterInfoMapper">
+
+	<select id="selectAll"
+		resultType="main.java.mybatis.entity.TheaterInfo">
+		SELECT * FROM THEATER_INFO
+	</select>
+
+	<select id="selectAllRetMap" resultType="hashmap">
+		SELECT * FROM
+		THEATER_INFO
+	</select>
+
+	<select id="selectByPrimaryKey"
+		resultType="main.java.mybatis.entity.TheaterInfo">
+		SELECT * FROM THEATER_INFO WHERE THEATER_ID = #{theaterId}
+	</select>
+
+	<insert id="insert">
+		INSERT INTO THEATER_INFO VALUES(#{theater_id},
+		#{theater_nm}, #{prefectures_cd})
+	</insert>
+
+	<update id="update">
+		UPDATE THEATER_INFO SET THEATER_NM = #{theater_nm}
+		WHERE THEATER_ID = #{theater_id}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM THEATER_INFO WHERE THEATER_ID =
+		#{theater_id}
+	</delete>
+
+	<select id="selectCount" parameterType="string" resultType="int">
+		SELECT COUNT(*) FROM THEATER_INFO WHERE THEATER_ID = #{theater_id}
+	</select>
+</mapper>

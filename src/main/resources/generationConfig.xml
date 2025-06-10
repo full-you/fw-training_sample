@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+        location="C:/Users/user/.m2/repository/mysql/mysql-connector-java/8.0.22/mysql-connector-java-8.0.22-sources.jar" />
+    <context id="context1">
+ 
+<!--     JDBCの設定です (1) -->
+        <jdbcConnection
+            driverClass="com.mysql.cj.jdbc.Driver"
+            connectionURL="jdbc:mysql://localhost:3306/training"
+            userId="root"
+            password="root"
+        />
+ 
+   <!-- SELECT 結果等を格納するドメインモデルを生成する設定 -->
+    <javaModelGenerator targetPackage="main.java.myBatis.entity" targetProject="fw-training">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <!-- SQL 設定が記述された XML を生成する設定 -->
+    <sqlMapGenerator targetPackage="main/resources/mapper" targetProject="fw-training">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <!-- マッパークラスを生成する設定 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="main.java.myBatis.mapper" targetProject="fw-training">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+
+<!--     生成対象のテーブルです（3) -->
+        <table schema="training" tableName="PREFECTURES">
+            <property name="useActualColumnNames" value="true" />
+        </table>
+    </context>
+</generatorConfiguration>
