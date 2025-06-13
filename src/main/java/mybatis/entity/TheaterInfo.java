@@ -1,9 +1,11 @@
 package main.java.mybatis.entity;
 
+import java.io.Serializable;
+
 /**
  * THEATER_INFOテーブルのEntity
  */
-public class TheaterInfo {
+public class TheaterInfo implements Serializable {
 
 	// 劇場ID
 	private String theater_id;
