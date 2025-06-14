@@ -29,32 +29,48 @@ public interface TheaterInfoMapper {
 	 */
 	public TheaterInfo selectByPrimaryKey(String theaterId);
 
-//	/**
-//	 * insert
-//	 * @param theaterInfo
-//	 * @return 登録件数
-//	 */
-//	public int insert(TheaterInfo theaterInfo);
-//
-//	/**
-//	 * update
-//	 * @param theater_nm
-//	 * @param theater_id
-//	 * @return 登録件数
-//	 */
-//	public int update(String theater_nm, String theater_id);
-//
-//	/**
-//	 * delete
-//	 * @param theater_id
-//	 * @return 登録件数
-//	 */
-//	public int delete(String theater_id);
-//	
-//	/**
-//	 * PKをキーに検索（件数カウント）
-//	 * @param theater_id
-//	 * @returnb hit件数
-//	 */
-//	public int selectCount(String theater_id);
+	/**
+	 * insert
+	 * @param theaterInfo
+	 * @return 登録件数
+	 */
+	public int insert(TheaterInfo theaterInfo);
+
+	/**
+	 * update
+	 * @param theater_nm
+	 * @param theater_id
+	 * @return 登録件数
+	 */
+	public int update(String theater_nm, String theater_id);
+
+	/**
+	 * delete
+	 * @param theater_id
+	 * @return 登録件数
+	 */
+	public int delete(String theater_id);
+
+	/**
+	 * PKをキーに検索（件数カウント）
+	 * @param theater_id
+	 * @returnb hit件数
+	 */
+	public int selectCount(String theater_id);
+
+	/**
+	 * ifタグを使ったSQLサンプル
+	 * @param theater_id
+	 * @param theater_nm
+	 * @return List<TheaterInfo>
+	 */
+	public List<TheaterInfo> ifTagTest( String theater_id, String theater_nm);
+
+	/**
+	 * for-eachタグを使ったSQLサンプル
+	 * @param theaterIdList
+	 * @return List<TheaterInfo>
+	 */
+	public List<TheaterInfo> forEachTagTest(List<String> theaterIdList);
+
 }

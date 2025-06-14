@@ -37,4 +37,28 @@
 	<select id="selectCount" parameterType="string" resultType="int">
 		SELECT COUNT(*) FROM THEATER_INFO WHERE THEATER_ID = #{theater_id}
 	</select>
+
+	<select id="ifTagTest"
+		resultType="main.java.mybatis.entity.TheaterInfo">
+		SELECT * FROM THEATER_INFO
+		<where>
+			<if test="theater_id != null and theater_id != ''">
+				THEATER_ID = #{theater_id}
+			</if>
+			<if test="theater_nm != null and theater_nm != ''">
+				and theater_nm like CONCAT('%', #{theater_nm}, '%')
+			</if>
+		</where>
+	</select>
+
+	<select id="forEachTagTest"
+		resultType="main.java.mybatis.entity.TheaterInfo">
+		SELECT * FROM THEATER_INFO
+		<where>
+			<foreach item="item" index="index" collection="theaterIdList"
+				open="theater_id in(" separator="," close=")" nullable="true">
+				#{item}
+			</foreach>
+		</where>
+	</select>
 </mapper>
